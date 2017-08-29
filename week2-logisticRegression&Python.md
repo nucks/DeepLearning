@@ -1,17 +1,17 @@
-#Week 2 - Logistic Regression as a Neural Network
+# Week 2 - Logistic Regression as a Neural Network
 
 * You always want to process your training sets without a for loop.
 * There is usually a forward propagation step followed by a backward propagation step.
 
-##Binary Classification
-###Images
+##  Binary Classification
+### Images
 * Say you have an image that is 64px x 64px. To show that in a computer, you will have 3 separate matrices (red matrix, blue matrix, green matrix) and each one will be 64x64.
 * This picture represents y = what you want to get from the image (1 or a 0).
 ￼￼![Binary Classification](/images/week2/binaryClassification.png)
 * To find x, we need to use those values to create a **feature vector**.
 ￼![Image Vector](/images/week2/imageVector.png)
 ￼
-###Notation
+### Notation
 (x,y) = x^nx, y^0 or 1
 mtraining examples = {(x1, y1), (x2, y2), (x3, y3), (x4, y4), (x5, y5)}
 mtraining examples = the number of training examples or mtest = the number of test sets
@@ -23,7 +23,7 @@ X = [x1, x2, x3…xm]
 * `Y = ^1x x m matrix`
 * `Y.shape = (1, m)`. This is a 1 x m matrix.
 
-##Logistic Regression (Model)
+##  Logistic Regression (Model)
 Given x, we want y hat = the probability that y = 1 given x.
 * X^nx with parameters w^nx, b (which is a real number)
 * Y hat = w transpose x + b (linear function of the input x) 
@@ -36,7 +36,7 @@ Given x, we want y hat = the probability that y = 1 given x.
     * If z is large then it will equal something very close to 1.
     * If z is very small (large negative number) then sigmoid(z) will be close to 0.
 
-##Logistic Regression Cost Function
+##  Logistic Regression Cost Function
 * Squared error =  1/2(y hat - y)^2 is one way to find the loss, but it doesn’t work well with gradient descent so we don’t want to do that.
 * Loss(y hat, y) = -(y log y hat + (1-y)log(1-y hat)) 
 * We want the loss function to be as small as possible
@@ -49,7 +49,7 @@ Given x, we want y hat = the probability that y = 1 given x.
 **Loss function** - works for a single training example
 **Cost function** - Applied to parameters of the algorithm and works for entire training set
 
-##Gradient Descent
+##  Gradient Descent
 * We can use gradient descent to learn the parameters of the training set. We want to find w, b that minimize J(w, b)
 * Convex functions look like big bowls (in contrast to functions that have lines that go up and down)
 * You can initialize it anywhere, but you will always end up at the same point.
@@ -61,7 +61,7 @@ Given x, we want y hat = the probability that y = 1 given x.
 ￼![The actual equations to update parameters](/images/week2/actualEquations.png)
 **Partial derivative symbol** - ∂ (lowercase d in fancy font that is used to describe derivative instead of d if J is followed by more than one parameter). That is a rule in calculus (more than one param = ∂) 
 
-##Derivatives
+## Derivatives
 * Slope = derivative (height/width or rise/run)
     * Df(a)/da or d/da(f(a))
     * As you move up a line with this formula, the slope will remain the same.
@@ -74,19 +74,19 @@ Given x, we want y hat = the probability that y = 1 given x.
     * If a = 2, derivative = 0.69315. so we’d expect it to go up by 1/2
 * Derivative of functions can usually be found in textbooks—so you can always look them up.
 
-##Computation Graph
+## Computation Graph
 * The computation graph helps to explain why a backward and forward propagation steps are necessary.
 ￼![Computation Graph](/images/week2/computationGraph.png)
 * This shows how you can take a left-to-right pass to figure out J, and we are going to learn how you can take a right-to-left pass to figure out some of the other variables as well.
 * One step of a backward propagation on a computation graph yields derivative of final output variable.
 
-##Derivatives with a Computation Graph
+## Derivatives with a Computation Graph
 * dJ/dv = What is the derivative of J according to v?
 **Chain rule** - The product in the change of `dJ/dv * dv/da = dJ/da` (if a => v => j)
 * The picture below shows what we would name a variable that is looking for the derivative based on a certain variable. The derivative of the final output variable that you care about (such as J)
 ￼![Derivative in Code](/images/week2/derivativeInCode.png)
 
-##Logistic Regression & Gradient Descent w/ one training example
+## Logistic Regression & Gradient Descent w/ one training example
 * We want to modify the parameters to create a lower loss function.
 ￼￼![Logistic regression & gradient descent example](/images/week2/logisticRegressionFlow.png)
 * Remember: to get the derivatives of a training example, you always need to go backwards.
@@ -94,14 +94,14 @@ Given x, we want y hat = the probability that y = 1 given x.
     * `da = dL(a,y)/da = -y/a + 1-y/1-a`
 ￼￼![Computation of Loss](/images/week2/computationOfLoss.png)
 
-##Gradient Descent on m Examples
+## Gradient Descent on m Examples
 ￼￼￼![Vectorized vs. Non-vectorized](/images/week2/nonVectorizedVsVectorized.png)
 * The above code is what gradient descent looks like with two variables. You’ll notice the two for loops—we will get rid of those for loops using vectorization.
 * Vectorization techniques allow us to get rid of explicit for loops in our code.
 
 #Python & Vectorization
 
-##Vectorization
+## Vectorization
 * Vectorization is so important because it helps code run faster and since we are working with such big datasets, that can make massive differences.
 * `Z = np.dot(w,x) + b`
 * `w transpose x = np.dot(w,x)`
@@ -140,11 +140,11 @@ print(“For loop: “ + str(1000 + (toc - tic)) + “ms”)
     * Both GPU’s and CPU’s have SIMD. GPU’s are better at SIMD calculations.
     * **SIMD**- Single instantiation multiple data - takes advantage of parallelism to run your computations much faster if you use methods like np.dot().
 
-##More Vectorization Examples
+## More Vectorization Examples
 ￼￼￼￼![Vectorize each Element](/images/week2/vectorizeEachElement.png)
 * `np.zeros(nx, 1)` = this is the function you can use to create a vector
 
-##Vectorizing Logistic Regression
+## Vectorizing Logistic Regression
 * This is the code required for a forward propagation step.
 * `X = [x^1 x^2 x^3 x^m]`. Any capital letter that is used denotes this same format.
     * (nx by m matrix = (nx,m))
@@ -154,7 +154,7 @@ print(“For loop: “ + str(1000 + (toc - tic)) + “ms”)
 * **Broadcasting** - python will take b and “broadcast” it out to be [b^1 b^2 b^m].
 ￼￼￼￼￼![Explanation of Vectorizing Logistic Regression](/images/week2/bigExplan.png)
 
-##Vectorizing Logistic Regression’s Gradient Output
+## Vectorizing Logistic Regression’s Gradient Output
 ￼￼￼￼￼![Logistic regression gradient ouput](/images/week2/equationCombo.png)
 * You can see how `dZ = A - Y` through the logic included in the picture above.
 ￼￼￼￼￼![Converting logic to code](/images/week2/logicToCode.png)
@@ -165,7 +165,7 @@ print(“For loop: “ + str(1000 + (toc - tic)) + “ms”)
 * Using the code on the right, we have just implemented a single iteration of gradient descent for logistic regression.
 * If you want to implement multiple iterations of gradient descent then you still need to use a for loop. There isn’t a known better way of doing this.
 
-##Broadcasting in Python
+## Broadcasting in Python
 ￼￼￼￼￼![Calorie Example of Broadcasting](/images/week2/carbExample.png)
 ```
 import numpy as np
@@ -178,20 +178,16 @@ print(A)
 cal = A.sum(axis=0) # this will sum them up vertically
 print(cal)
 
-percentage = 100 * A/cal.reshape(1,4) 
-# Calling reshape on cal is a little redundant because it’s already in that shape, but sometimes it’s good to do that if you aren’t sure what your matrix looks like.
+percentage = 100 * A/cal.reshape(1,4) # Calling reshape on cal is a little redundant because it’s already in that shape, but sometimes it’s good to do that if you aren’t sure what your matrix looks like.
 print(percentage)
+```
 
 * The reshape command is very cheap to call so you don’t have to worry about it.
-* If you have a vector i.e. [1,
-					                   2,
-                             3, 
-					                   4] * 100 and multiply it by a one dimensional vector then it will expand that 100 and multiple it across the board.
-￼```
+* If you have a vector i.e. [1, 2, 3, 4] * 100 and multiply it by a one dimensional vector then it will expand that 100 and multiple it across the board.
 ￼￼￼￼￼![Broadcast Example](/images/week2/broadcastVector.png)
 ￼￼￼￼￼![Broadcast Example 2](/images/week2/broadcastVector2.png)
 
-##A note on python/numpy vectors
+## A note on python/numpy vectors
 * Broadcasting is a pro and con in python.
     * Pro: It can allow for great expressivity.
     * Con: It can bring about strange bugs that are difficult to understand.
@@ -221,6 +217,6 @@ print(a.T) # This produces a row vector.
 print(np.dot(a, a.T)) # This will give you the product of a vector
 ```
 
-##Quick tour of Jupyter/iPython Notebooks
+## Quick tour of Jupyter/iPython Notebooks
 * Jupyter notebooks are open source notebooks that you can use on any site. They are great for python problems.
 * https://jupyter.org/install.html
