@@ -6,9 +6,11 @@
 ##  Binary Classification
 ### Images
 * Say you have an image that is 64px x 64px. To show that in a computer, you will have 3 separate matrices (red matrix, blue matrix, green matrix) and each one will be 64x64.
-* This picture represents y = what you want to get from the image (1 or a 0).
+* This picture represents y. You will either get a 0 or a 1 as a result that will tell you whether or not the image is what you expect.
+
 ￼￼![Binary Classification](/images/week2/binaryClassification.png)
 * To find x, we need to use those values to create a **feature vector**.
+
 ￼![Image Vector](/images/week2/imageVector.png)
 ￼
 ### Notation
@@ -18,18 +20,18 @@ mtraining examples = the number of training examples or mtest = the number of te
 X = [x1, x2, x3…xm] 
 * This matrix will have m columns and nx rows
 * X = ^nx x m matrix
-* `X.shape = (nx, m)`. This will give you the shape of a matrix in python.
-* `Y = [y1, y2, y3…ym]`
-* `Y = ^1x x m matrix`
-* `Y.shape = (1, m)`. This is a 1 x m matrix.
+* `X.shape` = (nx, m). This will give you the shape of a matrix in python.
+* Y = [y1, y2, y3…ym]
+* Y = ^1x x m matrix
+* `Y.shape` = (1, m). This is a 1 x m matrix.
 
 ##  Logistic Regression (Model)
-Given x, we want y hat = the probability that y = 1 given x.
+Given x, we want y&#770; to equl the probability that y = 1, given x.
 * X^nx with parameters w^nx, b (which is a real number)
-* Y hat = w transpose x + b (linear function of the input x) 
+* y&#770; = w transpose x + b (linear function of the input x) 
     * This is good for linear regression.
     * The problem with this is that it is hard to enforce that 0 <= y <= 1. It can be negative, or much bigger.
-* So, the solution is y hat = sigmoid(w transpose x + b)
+* So, the solution is y&#770; = sigmoid(w transpose x + b)
 ￼![Logistic Regression Model](/images/week2/logisticRegressionModel.png)
 * We use z to replace the w transpose x + b
 * So, sigmoid(z) = 1/1+e^-z
@@ -37,14 +39,14 @@ Given x, we want y hat = the probability that y = 1 given x.
     * If z is very small (large negative number) then sigmoid(z) will be close to 0.
 
 ##  Logistic Regression Cost Function
-* Squared error =  1/2(y hat - y)^2 is one way to find the loss, but it doesn’t work well with gradient descent so we don’t want to do that.
-* Loss(y hat, y) = -(y log y hat + (1-y)log(1-y hat)) 
+* Squared error =  1/2(y&#770; - y)^2 is one way to find the loss, but it doesn’t work well with gradient descent so we don’t want to do that.
+* Loss(y&#770;, y) = -(y log y&#770; + (1-y)log(1-y&#770;)) 
 * We want the loss function to be as small as possible
-    * If y = 1, want y hat to be large
-    * If y = 0, want y hat to be small 
+    * If y = 1, want y&#770; to be large
+    * If y = 0, want y&#770; to be small 
 * The loss function works to see how a single training example is doing.
 * The cost function (how you are doing on the entire training set)
-    * `J(w, b) = 1/m` of the sum of the loss function (y hat ^ i, y ^ i) = 
+    * `J(w, b) = 1/m` of the sum of the loss function (y&#770; ^ i, y ^ i) = 
 ￼![Cost Function](/images/week2/costFunction.png)
 **Loss function** - works for a single training example
 **Cost function** - Applied to parameters of the algorithm and works for entire training set
