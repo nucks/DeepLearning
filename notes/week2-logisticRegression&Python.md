@@ -34,7 +34,7 @@ Given x, we want y&#770; to equl the probability that y = 1, given x.
     * This is good for linear regression.
     * The problem with this is that it is hard to enforce that 0 <= y <= 1. It can be negative, or much bigger.
 * So, the solution is y&#770; = sigmoid(w transpose x + b)
-<img src="/images/week2/logisticRegressionModel.png" alt="Logistic Regression Model" width="50%" />
+<img src="/images/week2/logisticRegressionModel.png" alt="Logistic Regression Model" width="50%"></img>
 * We use z to replace the w transpose x + b
 * So, sigmoid(z) = 1/1+e<sup>-z</sup>
     * If z is large then it will equal something very close to 1.
@@ -62,7 +62,7 @@ Given x, we want y&#770; to equl the probability that y = 1, given x.
 * The derivative term dJ(w)/dw is usually represented in code as “dw” and the equation representing the b is “db”
 ￼![Gradient Descent](/images/week2/gradientDescent.png)
 * The actual equations to update each of the parameters (w and b)
-<img src="/images/week2/actualEquations.png" alt="The actual equations to update parameters" width="50%" />
+<img src="/images/week2/actualEquations.png" alt="The actual equations to update parameters" width="50%"></img>
 **Partial derivative symbol** - ∂ (lowercase d in fancy font that is used to describe derivative). This symbol will be shown in place of a lowercase d if there is more than one parameter. This is a rule of calculus.
 
 ## Derivatives
@@ -88,7 +88,7 @@ Given x, we want y&#770; to equl the probability that y = 1, given x.
 * dJ/dv = What is the derivative of J according to v?
 **Chain rule** - The product in the change of `dJ/dv * dv/da = dJ/da` (if a => v => j)
 * The picture below shows what we would name a variable that is looking for the derivative based on a certain variable. The derivative of the final output variable that you care about (such as J)
-<img src="/images/week2/derivativeInCode.png" alt="Derivative in Code" width="45%" />
+<img src="/images/week2/derivativeInCode.png" alt="Derivative in Code" width="45%"></img>
 
 ## Logistic Regression & Gradient Descent w/ one training example
 * We want to modify the parameters to create a lower loss function.
@@ -161,8 +161,8 @@ print(“For loop: “ + str(1000 + (toc - tic)) + “ms”)
 ## Vectorizing Logistic Regression’s Gradient Output
 ￼￼￼￼￼![Logistic regression gradient ouput](/images/week2/equationCombo.png)
 * You can see how `dZ = A - Y` through the logic included in the picture above.
-<img src="/images/week2/logicToCode.png" alt="Converting logic to code" width="75%" />
-<img src="/images/week2/finalAns.png" alt="Final Equation" width="75%"/>
+<img src="/images/week2/logicToCode.png" alt="Converting logic to code" width="75%"></img>
+<img src="/images/week2/finalAns.png" alt="Final Equation" width="75%"></img>
 * The perfect example on the right compared to the first bad example on the left:
     * In this we compute the forward & backward propagations without using an exclusive for loop.
 ￼￼￼￼![Full Examples with Vectorization](/images/week2/rightVsWrong.png)
