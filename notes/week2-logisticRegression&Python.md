@@ -1,11 +1,12 @@
 # Week 2 - Logistic Regression as a Neural Network
 
-* You always want to process your training sets without a for loop.
-* There is usually a forward propagation step followed by a backward propagation step.
+* Tips
+    * You always want to process training sets without explicit for loops because they are too expensive.
+    * In logistic regression, there is a forward propagation step followed by a backward propagation step.
 
 ##  Binary Classification
 ### Images
-* Say you have an image that is 64px x 64px. To show that in a computer, you will have 3 separate matrices (red matrix, blue matrix, green matrix) and each one will be 64x64.
+* Let's say that you have an image that is 64px x 64px. To represent that image in a computer, it will be represented as 3 separate matrices (red matrix, blue matrix, green matrix) and each one will be 64 x 64.
 * This picture represents y. You will either get a 0 or a 1 as a result that will tell you whether or not the image is what you expect.
 
 ￼￼![Binary Classification](/images/week2/binaryClassification.png)
@@ -14,39 +15,40 @@
 ￼![Image Vector](/images/week2/imageVector.png)
 ￼
 ### Notation
-(x,y) = x^nx, y^0 or 1
-mtraining examples = {(x1, y1), (x2, y2), (x3, y3), (x4, y4), (x5, y5)}
-mtraining examples = the number of training examples or mtest = the number of test sets
-X = [x1, x2, x3…xm] 
+(x,y) = x<sup>nx</sup>, y<sup>0 or 1</sup>
+mtraining examples = {(x<sup>1</sup>, y<sup>1</sup>), (x<sup>2</sup>, y<sup>2</sup>), (x<sup>3</sup>, y<sup>3</sup>), (x<sup>4</sup>, y<sup>4</sup>), (x<sup>5</sup>, y<sup>5</sup>)}
+* **m<sub>training</sub> examples** - the number of training examples
+* **m<sub>test</sub>** - the number of test sets
+X = [x<sup>1</sup>, x<sup>2</sup>, x<sup>3</sup>…x<sup>m</sup>] 
 * This matrix will have m columns and nx rows
-* X = ^nx x m matrix
+* X = <sup>nx x m</sup> matrix
 * `X.shape` = (nx, m). This will give you the shape of a matrix in python.
-* Y = [y1, y2, y3…ym]
-* Y = ^1x x m matrix
+* Y = [y<sup>1</sup>, y<sup>2</sup>, y<sup>3</sup>…y<sup>m</sup>]
+* Y = <sup>1x x m</sup> matrix
 * `Y.shape` = (1, m). This is a 1 x m matrix.
 
-##  Logistic Regression (Model)
+##  Logistic Regression Model
 Given x, we want y&#770; to equl the probability that y = 1, given x.
-* X^nx with parameters w^nx, b (which is a real number)
+* X<sup>nx</sup> with parameters w<sup>nx</sup>, b (which is a real number)
 * y&#770; = w transpose x + b (linear function of the input x) 
     * This is good for linear regression.
     * The problem with this is that it is hard to enforce that 0 <= y <= 1. It can be negative, or much bigger.
 * So, the solution is y&#770; = sigmoid(w transpose x + b)
 ￼![Logistic Regression Model](/images/week2/logisticRegressionModel.png)
 * We use z to replace the w transpose x + b
-* So, sigmoid(z) = 1/1+e^-z
+* So, sigmoid(z) = 1/1+e<sup>-z</sup>
     * If z is large then it will equal something very close to 1.
     * If z is very small (large negative number) then sigmoid(z) will be close to 0.
 
 ##  Logistic Regression Cost Function
-* Squared error =  1/2(y&#770; - y)^2 is one way to find the loss, but it doesn’t work well with gradient descent so we don’t want to do that.
+* Squared error =  1/2(y&#770; - y)<sup>2</sup> is one way to find the loss, but it doesn’t work well with gradient descent so we don’t want to do that.
 * Loss(y&#770;, y) = -(y log y&#770; + (1-y)log(1-y&#770;)) 
 * We want the loss function to be as small as possible
     * If y = 1, want y&#770; to be large
     * If y = 0, want y&#770; to be small 
 * The loss function works to see how a single training example is doing.
 * The cost function (how you are doing on the entire training set)
-    * `J(w, b) = 1/m` of the sum of the loss function (y&#770; ^ i, y ^ i) = 
+    * `J(w, b) = 1/m` of the sum of the loss function (y&#770;<sup>i</sup>, y<sup>i</sup>) = 
 ￼![Cost Function](/images/week2/costFunction.png)
 **Loss function** - works for a single training example
 **Cost function** - Applied to parameters of the algorithm and works for entire training set
@@ -67,12 +69,12 @@ Given x, we want y&#770; to equl the probability that y = 1, given x.
 * Slope = derivative (height/width or rise/run)
     * Df(a)/da or d/da(f(a))
     * As you move up a line with this formula, the slope will remain the same.
-* If you have f(a) = a^2 then the slope will change as you move on the line.
-* `D/da(a^2) = 2a`
+* If you have f(a) = a<sup>2</sup> then the slope will change as you move on the line.
+* `D/da(a<sup>2</sup>) = 2a`
     * If you nudge up fa at some point, then you can expect the derivate to move up 2a. This will tell you exactly how much you can expect fa (f of a) to go up. 4 times as much.
-* D/da(a^3) = 3a^2
-    * If A = 2, derivative = 8. If you check this 3a^2 = 12, meaning that it will be 12 times as much.
-* Loge^a = d/da(f(a)) = 1/a
+* D/da(a<sup>3</sup>) = 3a<sup>2</sup>
+    * If A = 2, derivative = 8. If you check this 3a<sup>2</sup> = 12, meaning that it will be 12 times as much.
+* Log<sub>e</sub><sup>a</sup> = d/da(f(a)) = 1/a
     * If a = 2, derivative = 0.69315. so we’d expect it to go up by 1/2
 * Derivative of functions can usually be found in textbooks—so you can always look them up.
 
@@ -148,12 +150,12 @@ print(“For loop: “ + str(1000 + (toc - tic)) + “ms”)
 
 ## Vectorizing Logistic Regression
 * This is the code required for a forward propagation step.
-* `X = [x^1 x^2 x^3 x^m]`. Any capital letter that is used denotes this same format.
+* `X = [x<sup>1</sup> x<sup>2</sup> x<sup>3</sup> x<sup>m</sup>]`. Any capital letter that is used denotes this same format.
     * (nx by m matrix = (nx,m))
 * `Z = np.dot(w.T, x) + b` (this is a 1xm matrix that calculates all of the z variables)
 * Activation logic
-    * `A = [a^1 a^2 a^3 a^m] = sigmoid(Z)`
-* **Broadcasting** - python will take b and “broadcast” it out to be [b^1 b^2 b^m].
+    * `A = [a<sup>1</sup> a<sup>2</sup> a<sup>3</sup> a<sup>m</sup>] = sigmoid(Z)`
+* **Broadcasting** - python will take b and “broadcast” it out to be [b<sup>1</sup> b<sup>2</sup> b<sup>m</sup>].
 ￼￼￼￼￼![Explanation of Vectorizing Logistic Regression](/images/week2/bigExplan.png)
 
 ## Vectorizing Logistic Regression’s Gradient Output
