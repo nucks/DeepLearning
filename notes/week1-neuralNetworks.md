@@ -6,12 +6,13 @@
 
 **ReLU function** - The simplest neural network that exists.
 * It stands for rectified learning unit function.
+* The picture below shows what a ReLU function looks like.
 ￼![ReLU function graphed](/images/week1/reluFunction.png)
 
 ### Types of Neural Networks
-￼![Recurrent NN (Neural Network)](/images/week1/recurrentNN.png)<!-- .element height="32%" width="32%" -->
-￼![Standard NN (Neural Network)](/images/week1/standardNN.png)<!-- .element height="32%" width="32%" -->
-￼![Convolutional NN (Neural Network)](/images/week1/convolutionalNN.png)<!-- .element height="32%" width="32%" -->
+<img src="/images/week1/recurrentNN.png" alt="Recurrent NN (Neural Network)" width="32%">
+<img src="/images/week1/standardNN.png" alt="Standard NN (Neural Network)" width="32%">
+<img src="/images/week1/convolutionalNN.png" alt="Convolutional NN (Neural Network)" width="32%">
 
 **Recurring Neural Network (RNN)** - These neural networks are used to understand sequenced data.
 * An example of an RNN would be an audio clip.
@@ -24,9 +25,9 @@
 
 ### Types of Data
 * **Structured Data** - Data that can be found in a database or table.
-* **Unstructured data** = Data without form. Text, photos, video, and audio are all good examples of unstructured data.
+* **Unstructured data** - Data without form. Text, photos, video, and audio are all good examples of unstructured data.
 ￼
-![Structured vs. Unstructured Data](/images/week1/structuredVsUnstructured.png)<!-- .element height="75%" width="75%" -->
+<img src="/images/week1/structuredVsUnstructured.png" alt="Structured vs. Unstructured Data" width="75%">
 
 ### Additional Neural Network Resources
 * http://neuralnetworksanddeeplearning.com

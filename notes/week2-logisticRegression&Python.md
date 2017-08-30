@@ -1,6 +1,6 @@
 # Week 2 - Logistic Regression as a Neural Network
 
-* Tips
+* Quick Tips
     * You always want to process training sets without explicit for loops because they are too expensive.
     * In logistic regression, there is a forward propagation step followed by a backward propagation step.
 
@@ -103,7 +103,7 @@ Given x, we want y&#770; to equl the probability that y = 1, given x.
 * The above code is what gradient descent looks like with two variables. You’ll notice the two for loops—we will get rid of those for loops using vectorization.
 * Vectorization techniques allow us to get rid of explicit for loops in our code.
 
-#Python & Vectorization
+# Python & Vectorization
 
 ## Vectorization
 * Vectorization is so important because it helps code run faster and since we are working with such big datasets, that can make massive differences.
