@@ -12,7 +12,7 @@
 ￼￼![Binary Classification](/images/week2/binaryClassification.png)
 * To find x, we need to use those values to create a **feature vector**.
 
-<img src="/images/week2/imageVector.png" alt="Image Vector" width="50%" />
+<img src="/images/week2/imageVector.png" alt="Image Vector" width="50%"></img>
 ￼
 ### Notation
 * (x,y) = x<sup>nx</sup>, y<sup>0 or 1</sup>
