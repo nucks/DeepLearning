@@ -12,11 +12,11 @@
 ￼￼![Binary Classification](/images/week2/binaryClassification.png)
 * To find x, we need to use those values to create a **feature vector**.
 
-￼![Image Vector](/images/week2/imageVector.png)
+<img src="/images/week2/imageVector.png" alt="Image Vector" width="50%">
 ￼
 ### Notation
-(x,y) = x<sup>nx</sup>, y<sup>0 or 1</sup>
-mtraining examples = {(x<sup>1</sup>, y<sup>1</sup>), (x<sup>2</sup>, y<sup>2</sup>), (x<sup>3</sup>, y<sup>3</sup>), (x<sup>4</sup>, y<sup>4</sup>), (x<sup>5</sup>, y<sup>5</sup>)}
+* (x,y) = x<sup>nx</sup>, y<sup>0 or 1</sup>
+* m<sub>training</sub> examples = {(x<sup>1</sup>, y<sup>1</sup>), (x<sup>2</sup>, y<sup>2</sup>), (x<sup>3</sup>, y<sup>3</sup>), (x<sup>4</sup>, y<sup>4</sup>), (x<sup>5</sup>, y<sup>5</sup>)}
 * **m<sub>training</sub> examples** - the number of training examples
 * **m<sub>test</sub>** - the number of test sets
 X = [x<sup>1</sup>, x<sup>2</sup>, x<sup>3</sup>…x<sup>m</sup>] 
@@ -34,7 +34,7 @@ Given x, we want y&#770; to equl the probability that y = 1, given x.
     * This is good for linear regression.
     * The problem with this is that it is hard to enforce that 0 <= y <= 1. It can be negative, or much bigger.
 * So, the solution is y&#770; = sigmoid(w transpose x + b)
-￼![Logistic Regression Model](/images/week2/logisticRegressionModel.png)
+<img src="/images/week2/logisticRegressionModel.png" alt="Logistic Regression Model" width="50%">
 * We use z to replace the w transpose x + b
 * So, sigmoid(z) = 1/1+e<sup>-z</sup>
     * If z is large then it will equal something very close to 1.
@@ -62,15 +62,15 @@ Given x, we want y&#770; to equl the probability that y = 1, given x.
 * The derivative term dJ(w)/dw is usually represented in code as “dw” and the equation representing the b is “db”
 ￼![Gradient Descent](/images/week2/gradientDescent.png)
 * The actual equations to update each of the parameters (w and b)
-￼![The actual equations to update parameters](/images/week2/actualEquations.png)
-**Partial derivative symbol** - ∂ (lowercase d in fancy font that is used to describe derivative instead of d if J is followed by more than one parameter). That is a rule in calculus (more than one param = ∂) 
+<img src="/images/week2/actualEquations.png" alt="The actual equations to update parameters" width="50%">
+**Partial derivative symbol** - ∂ (lowercase d in fancy font that is used to describe derivative). This symbol will be shown in place of a lowercase d if there is more than one parameter. This is a rule of calculus.
 
 ## Derivatives
-* Slope = derivative (height/width or rise/run)
+* **Derivative** - A fancy term for the slope of a line (height/width or rise/run). Slope and derivative can be used interchangeably.
     * Df(a)/da or d/da(f(a))
     * As you move up a line with this formula, the slope will remain the same.
 * If you have f(a) = a<sup>2</sup> then the slope will change as you move on the line.
-* `D/da(a<sup>2</sup>) = 2a`
+* `D/da(a^2) = 2a`
     * If you nudge up fa at some point, then you can expect the derivate to move up 2a. This will tell you exactly how much you can expect fa (f of a) to go up. 4 times as much.
 * D/da(a<sup>3</sup>) = 3a<sup>2</sup>
     * If A = 2, derivative = 8. If you check this 3a<sup>2</sup> = 12, meaning that it will be 12 times as much.
@@ -88,7 +88,7 @@ Given x, we want y&#770; to equl the probability that y = 1, given x.
 * dJ/dv = What is the derivative of J according to v?
 **Chain rule** - The product in the change of `dJ/dv * dv/da = dJ/da` (if a => v => j)
 * The picture below shows what we would name a variable that is looking for the derivative based on a certain variable. The derivative of the final output variable that you care about (such as J)
-￼![Derivative in Code](/images/week2/derivativeInCode.png)
+<img src="/images/week2/derivativeInCode.png" alt="Derivative in Code" width="45%">
 
 ## Logistic Regression & Gradient Descent w/ one training example
 * We want to modify the parameters to create a lower loss function.
@@ -161,8 +161,8 @@ print(“For loop: “ + str(1000 + (toc - tic)) + “ms”)
 ## Vectorizing Logistic Regression’s Gradient Output
 ￼￼￼￼￼![Logistic regression gradient ouput](/images/week2/equationCombo.png)
 * You can see how `dZ = A - Y` through the logic included in the picture above.
-￼￼￼￼￼![Converting logic to code](/images/week2/logicToCode.png)
-￼￼￼￼￼![Final equation](/images/week2/finalAns.png)
+<img src="/images/week2/logicToCode.png" alt="Converting logic to code" width="75%">
+<img src="/images/week2/finalAns.png" alt="Final Equation" width="75%">
 * The perfect example on the right compared to the first bad example on the left:
     * In this we compute the forward & backward propagations without using an exclusive for loop.
 ￼￼￼￼![Full Examples with Vectorization](/images/week2/rightVsWrong.png)
@@ -179,10 +179,10 @@ A = np.array([[56.0, 0.0, 4.0, 68.0],
 		     [1.8, 135.0, 99.0, 0.9]])
 print(A)
 
-cal = A.sum(axis=0) # this will sum them up vertically
+cal = A.sum(axis=0)                         # this will sum them up vertically
 print(cal)
 
-percentage = 100 * A/cal.reshape(1,4) # Calling reshape on cal is a little redundant because it’s already in that shape, but sometimes it’s good to do that if you aren’t sure what your matrix looks like.
+percentage = 100 * A/cal.reshape(1,4)       # Calling reshape on cal is a little redundant because it’s already in that shape, but sometimes it’s good to do that if you aren’t sure what your matrix looks like.
 print(percentage)
 ```
 
@@ -207,9 +207,9 @@ import numpy as np
 
 a = np.random.rand(5)
 print(a)
-print(a.shape) # This will produce a “rank 1 array” i.e. (5,)
-print(a.T) # This will look the same as a
-print(np.dot(a, a.T)) # This produces a single number
+print(a.shape)                              # This will produce a “rank 1 array” i.e. (5,)
+print(a.T)                                  # This will look the same as a
+print(np.dot(a, a.T))                       # This produces a single number
 ```
 
 * When coding neural networks, don’t use structures like this: (5,). Don’t use rank 1 arrays.
