@@ -6,14 +6,14 @@
 
 **ReLU function** - The simplest neural network that exists.
 * It stands for rectified learning unit function.
-* The picture below shows what a ReLU function looks like.
-￼![ReLU function graphed](/images/week1/reluFunction.png)
+* The picture to the right shows what a ReLU function looks like. ￼![ReLU function graphed](/images/week1/reluFunction.png)
 
 ### Types of Neural Networks
-<img src="/images/week1/recurrentNN.png" alt="Recurrent NN (Neural Network)" width="32%">
-<img src="/images/week1/standardNN.png" alt="Standard NN (Neural Network)" width="32%">
-<img src="/images/week1/convolutionalNN.png" alt="Convolutional NN (Neural Network)" width="32%">
-
+<div>
+  <img src="/images/week1/recurrentNN.png" alt="Recurrent NN (Neural Network)" width="32%">
+  <img src="/images/week1/standardNN.png" alt="Standard NN (Neural Network)" width="32%">
+  <img src="/images/week1/convolutionalNN.png" alt="Convolutional NN (Neural Network)" width="32%">
+</div>
 **Recurring Neural Network (RNN)** - These neural networks are used to understand sequenced data.
 * An example of an RNN would be an audio clip.
 * RNN's are generally remembered as neural networks that deal with time.
