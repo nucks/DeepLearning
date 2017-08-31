@@ -2,7 +2,7 @@
 
 ## Neural Network Overview
 * In logistic regression, we found z and then used that to find the activation. Then, we used the activation to calculate the loss.
-￼
+￼<br/>
 <img src="../images/week3/logisticRegression.png" alt="Logistic Regression" width="50%"></img>
 * In a neural network, we do the same thing but we do it multiple times. 
     * **Layer** - Each iteration of finding z and a. Layers are denoted by square brackets like so:  a<sup>[1]</sup>. 
@@ -11,8 +11,8 @@
 
 ## Neural Network Representation
 * What does a neural network look like?
-￼
-<img src="../images/week3/neuralNetwork" alt="Neural Network" width="50%"></img>
+￼￼<br/>
+<img src="../images/week3/neuralNetwork.png" alt="Neural Network" width="50%"></img>
 
 * **Hidden layer** - These are values that are not seen within the training set. You see both the input and the output values, but the hidden layer values are not shown.
 * Previously the input layer was referenced as x, but it can also be referenced as a<sup>[0]</sup>. Along those lines, the hidden layer becomes a<sup>[1]</sup>, and the output layer becomes a<sup>[2]</sup>.
@@ -33,8 +33,8 @@
 
 ## Computing a Neural Network’s Output
 * Now, let’s dive into what each node would look like in the hidden layer. As I wrote above, each node is used to calculate z and a.
-￼
-<img src="../images/week3/singleNode" alt="Single Node with Calculations" width="30%"></img>
+￼￼<br/>
+<img src="../images/week3/singleNode.png" alt="Single Node with Calculations" width="30%"></img>
 * Example notation that illustrates what is happening looks like this: a<sub>2</sub><sup>[1]</sup>
     * This annotates that we are looking at the second node in the first layer, or the hidden layer.
     * Subscript - the node number in the layer
