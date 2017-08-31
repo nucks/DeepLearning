@@ -217,10 +217,14 @@ print(np.dot(a, a.T))                       # This produces a single number
 ```
 a = np.random.randn(5,1)
 print(a)
-print(a.T) # This produces a row vector.
-print(np.dot(a, a.T)) # This will give you the product of a vector
+print(a.T)                                  # This produces a row vector.
+print(np.dot(a, a.T))                       # This will give you the product of a vector
 ```
 
 ## Quick tour of Jupyter/iPython Notebooks
 * Jupyter notebooks are open source notebooks that you can use on any site. They are great for python problems.
 * https://jupyter.org/install.html
+
+
+---
+[Continue to Week 3 - Shallow Neural Network Notes](/notes/week3-shallowNeuralNetworks.md)
