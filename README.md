@@ -4,6 +4,7 @@ This is a collection of my notes as I learn more about neural networks & deep le
 * [Week 1 - Neural Networks](/notes/week1-neuralNetworks.md)
 * [Week 2 - Logistic Regression & Python](/notes/week2-logisticRegression&Python.md)
 * [Week 3 - Shallow Neural Networks](/notes/week3-shallowNeuralNetworks.md)
+* [Week 4 - Deep Neural Networks](/notes/week4-deepNeuralNetworks.md)
 
 ￼![Student taking notes about deep learning](/images/deepLearning.png)
 
