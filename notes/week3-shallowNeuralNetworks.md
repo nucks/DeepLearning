@@ -130,5 +130,8 @@
 * When training with more hidden layers, and having more of a deep neural network, you oftentimes won’t want to use the constant 0.01. For one hidden layer, it is fine.
 
 ### Additional Resources
-* http://scs.ryerson.ca/~aharley/neural-networks/
-* https://cs231n.github.io/neural-networks-case-study/
+* [Demystifying deep convolutional neural networks](http://scs.ryerson.ca/~aharley/neural-networks/)
+* [Neural networks for visual recognition](https://cs231n.github.io/neural-networks-case-study/)
+
+---
+[Continue to Week 4 - Deep Neural Networks](/notes/week4-deepNeuralNetworks.md)

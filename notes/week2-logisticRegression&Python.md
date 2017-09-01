@@ -225,6 +225,9 @@ print(np.dot(a, a.T))                       # This will give you the product of 
 * Jupyter notebooks are open source notebooks that you can use on any site. They are great for python problems.
 * https://jupyter.org/install.html
 
+### Additional Resources
+* [Implementing a neural network from scratch](http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch/)
+* [StackExchange: Why do we normalize images?](https://stats.stackexchange.com/questions/211436/why-do-we-normalize-images-by-subtracting-the-datasets-image-mean-and-not-the-c)
 
 ---
 [Continue to Week 3 - Shallow Neural Network Notes](/notes/week3-shallowNeuralNetworks.md)

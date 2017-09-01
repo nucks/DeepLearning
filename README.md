@@ -8,7 +8,5 @@ This is a collection of my notes as I learn more about neural networks & deep le
 ￼![Student taking notes about deep learning](/images/deepLearning.png)
 
 ## Additional Deep Learning Resources
-* http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch/
-* https://deeplearning4j.org/quickstart
-* https://stats.stackexchange.com/questions/211436/why-do-we-normalize-images-by-subtracting-the-datasets-image-mean-and-not-the-c
-* https://medium.com/towards-data-science/linear-algebra-cheat-sheet-for-deep-learning-cd67aba4526c
+* [DeepLearning4J](https://deeplearning4j.org/quickstart)
+* [Linear algebra cheat-sheet for deep learning](https://medium.com/towards-data-science/linear-algebra-cheat-sheet-for-deep-learning-cd67aba4526c)

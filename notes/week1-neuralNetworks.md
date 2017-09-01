@@ -32,9 +32,9 @@
 ￼
 <img src="/images/week1/structuredVsUnstructured.png" alt="Structured vs. Unstructured Data" width="85%">
 
-### Additional Neural Network Resources
-* http://neuralnetworksanddeeplearning.com
-* http://news.mit.edu/2017/explained-neural-networks-deep-learning-0414
+### Additional Resources
+* [Free book about neural networks](http://neuralnetworksanddeeplearning.com)
+* [MIT: Neural networks explained](http://news.mit.edu/2017/explained-neural-networks-deep-learning-0414)
 
 ---
 [Continue to Week 2 - Logistic Regression & Python Notes](/notes/week2-logisticRegression&Python.md)
