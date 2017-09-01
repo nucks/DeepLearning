@@ -44,7 +44,7 @@
 * The entire flow of neural networks is illustrated in the picture below. It first shows the forward propagation step and the parameters that it requires, as well as the backward propagation step.
 * You will also notice that we cache a value between the two steps so that we can access the variables from the forward propagation step in the backward step too.<br/>
 ￼
-<img src=“../images/week4/neuralNetworkFlow.png” alt=“Entire neural network flow” width=“50%”></img>
+<img src="../images/week4/neuralNetworkFlow.png" alt="Entire neural network flow" width="50%"></img>
 
 ## Parameters vs. Hyperparameters
 * **Hyperparameters** - parameters that control the parameters that are being passed into the function (w, b)
@@ -54,7 +54,3 @@
 ## What does this have to do with the brain?
 * It doesn’t have a whole lot to do with the brain, in reality. The analogy is being used much less in the field nowadays.
 * There is a simplistic analogy that says the brains neurons send data to other neurons, but we know so little about even single neurons in the brain that it’s hard to compare. We don’t know how neurons in the human brain learn.
-
-### Additional Resources
-* [Implementing a neural network from scratch](http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch/)
-* [StackExchange: Why do we normalize images?](https://stats.stackexchange.com/questions/211436/why-do-we-normalize-images-by-subtracting-the-datasets-image-mean-and-not-the-c)
