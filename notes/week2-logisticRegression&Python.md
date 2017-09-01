@@ -150,11 +150,11 @@ print(“For loop: “ + str(1000 + (toc - tic)) + “ms”)
 
 ## Vectorizing Logistic Regression
 * This is the code required for a forward propagation step.
-* `X = [x<sup>1</sup> x<sup>2</sup> x<sup>3</sup> x<sup>m</sup>]`. Any capital letter that is used denotes this same format.
+* <code>X = [x<sup>1</sup> x<sup>2</sup> x<sup>3</sup> x<sup>m</sup>]</code>. Any capital letter that is used denotes this same format.
     * (nx by m matrix = (nx,m))
 * `Z = np.dot(w.T, x) + b` (this is a 1xm matrix that calculates all of the z variables)
 * Activation logic
-    * `A = [a<sup>1</sup> a<sup>2</sup> a<sup>3</sup> a<sup>m</sup>] = sigmoid(Z)`
+    * <code>A = [a<sup>1</sup> a<sup>2</sup> a<sup>3</sup> a<sup>m</sup>] = sigmoid(Z)</code>
 * **Broadcasting** - python will take b and “broadcast” it out to be [b<sup>1</sup> b<sup>2</sup> b<sup>m</sup>].
 ￼￼￼￼￼![Explanation of Vectorizing Logistic Regression](/images/week2/bigExplan.png)
 

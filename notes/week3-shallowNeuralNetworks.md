@@ -41,32 +41,27 @@
     * Superscript - the layer number that you are working with
 * Based on this, the z and a equations would both look a little different.
     * z<sub>2</sub><sup>[1]</sup> = w<sub>2</sub><sup>[1]T</sup>x + b<sub>2</sub><sup>[1]</sup>
-* So, given x, you can solve this with four lines of code:
-```html
-z<sup>[1]</sup> = W<sup>[1]</sup>x + b<sup>[1]</sup>
-a<sup>[1]</sup> = sigma(z<sup>[1]</sup>)
-z<sup>[2]</sup> = W<sup>[2]</sup>a<sup>[1]</sup> + b<sup>[2]</sup>
-a<sup>[2]</sup> = sigma(z<sup>[2]</sup>)
-```
+* So, given x, you can solve this with four lines of code:<br/>
+<code>z<sup>[1]</sup> = W<sup>[1]</sup>x + b<sup>[1]</sup></code><br/>
+<code>a<sup>[1]</sup> = sigma(z<sup>[1]</sup>)</code><br/>
+<code>z<sup>[2]</sup> = W<sup>[2]</sup>a<sup>[1]</sup> + b<sup>[2]</sup></code><br/>
+<code>a<sup>[2]</sup> = sigma(z<sup>[2]</sup>)</code><br/>
 
 ## Vectorizing Across Multiple Examples
 * To vectorize across multiple training sets, we need to do the same thing for all the different sets.
 * So if we have a set that is x<sup>1</sup>-x<sup>m</sup>, then we are going to generate a<sup>[2](i)</sup> as a solution. The first exponent tells us that we are in layer 2, and the second refers to which training set we are dealing with.
-* Those four lines of code change a little.
-```html
-for i = 1 to m:
-	z<sup>[1](i)</sup> = W<sup>[I]</sup>x<sup>(i)</sup> + b<sup>[1]</sup>
-	a<sup>[1](i)</sup> = sigmoid(z<sup>[1](i)</sup>)
-	z<sup>[2](i)</sup> = W<sup>[2]</sup>a<sup>[1](i)</sup> + b<sup>[2]</sup>
-	a<sup>[2](i)</sup> = sigmoid(z<sup>[2](i)</sup>)
-```
-* The solution above is not complete, however, because we still want to completely vectorize it. The way to do that is by using the capital version of the equation. ie. X = [x<sup>1</sup>, x<sup>2</sup>, x<sup>m</sup>]. Then you will have the full implementation.
-```html
-Z<sup>[1]</sup> = W<sup>[1]</sup>X + b<sup>[1]</sup>
-A<sup>[1]</sup> = sigmoid(Z<sup>[1]</sup>)
-Z<sup>[2]</sup> = W<sup>[2]</sup>A<sup>[1]</sup> + b<sup>[2]</sup>
-A<sup>[2]</sup> = sigmoid(Z<sup>[2]</sup>)
-```
+* Those four lines of code change a little.<br/>
+<code>for i = 1 to m:</code><br/>
+	<code>  z<sup>[1](i)</sup> = W<sup>[I]</sup>x<sup>(i)</sup> + b<sup>[1]</sup></code><br/>
+	<code>  a<sup>[1](i)</sup> = sigmoid(z<sup>[1](i)</sup>)</code><br/>
+	<code>  z<sup>[2](i)</sup> = W<sup>[2]</sup>a<sup>[1](i)</sup> + b<sup>[2]</sup></code><br/>
+	<code>  a<sup>[2](i)</sup> = sigmoid(z<sup>[2](i)</sup>)</code><br/>
+
+* The solution above is not complete, however, because we still want to completely vectorize it. The way to do that is by using the capital version of the equation. ie. X = [x<sup>1</sup>, x<sup>2</sup>, x<sup>m</sup>]. Then you will have the full implementation.<br/>
+<code>Z<sup>[1]</sup> = W<sup>[1]</sup>X + b<sup>[1]</sup></code><br/>
+<code>A<sup>[1]</sup> = sigmoid(Z<sup>[1]</sup>)</code><br/>
+<code>Z<sup>[2]</sup> = W<sup>[2]</sup>A<sup>[1]</sup> + b<sup>[2]</sup></code><br/>
+<code>A<sup>[2]</sup> = sigmoid(Z<sup>[2]</sup>)</code><br/>
 
 ## Activation Functions
 * Up to this point we have only used the sigmoid function as an activation function but there are others that work better.
@@ -112,30 +107,28 @@ A<sup>[2]</sup> = sigmoid(Z<sup>[2]</sup>)
 * Cost function: J(W<sup>[1]</sup>, b<sup>[1]</sup>, W<sup>[2]</sup>, b<sup>[2]</sup>) = 1/m * np.sum(y&#770;, y). 
     * y&#770; also means a<sup>[2]</sup>
 
-* Forward Propagation Step
-```html
-Z<sup>[1]</sup> = W<sup>[1]</sup>X + b<sup>[1]</sup>
-A<sup>[1]</sup> = g<sup>[1]</sup>(Z<sup>[1]</sup>)
-Z<sup>[2]</sup> = W<sup>[2]</sup>A<sup>[1]</sup> + b<sup>[2]</sup>
-A<sup>[2]</sup> = g<sup>[2]</sup>(Z<sup>[2]</sup>) = sigmoid(Z<sup>[2]</sup>)
-```
-* Backward Propagation Step
-```html
-dZ<sup>[2]</sup> = A<sup>[2]</sup> - Y
-dW<sup>[2]</sup> = 1/m * dZ<sup>[2]</sup>A<sup>[2]T</sup>
-db<sup>[2]</sup> = 1/m * np.sum(dZ<sup>[2]</sup>, axis = 1, keepdims = True)
-dZ<sup>[1]</sup> = W<sup>[2]T</sup>dZ<sup>[2]</sup> * g<sup>[1]’</sup>(Z<sup>[1]</sup>)
-dW<sup>[1]</sup> = 1/m * dZ<sup>[1]</sup>X<sup>T</sup>
-db<sup>[1]</sup> = a/m * np.sum(dZ<sup>[1]</sup>, axis = 1, keepdims = True)
-```
+* Forward Propagation Step<br/>
+<code>Z<sup>[1]</sup> = W<sup>[1]</sup>X + b<sup>[1]</sup></code><br/>
+<code>A<sup>[1]</sup> = g<sup>[1]</sup>(Z<sup>[1]</sup>)</code><br/>
+<code>Z<sup>[2]</sup> = W<sup>[2]</sup>A<sup>[1]</sup> + b<sup>[2]</sup></code><br/>
+<code>A<sup>[2]</sup> = g<sup>[2]</sup>(Z<sup>[2]</sup>) = sigmoid(Z<sup>[2]</sup>)</code><br/>
+* Backward Propagation Step<br/>
+<code>dZ<sup>[2]</sup> = A<sup>[2]</sup> - Y</code><br/>
+<code>dW<sup>[2]</sup> = 1/m * dZ<sup>[2]</sup>A<sup>[2]T</sup></code><br/>
+<code>db<sup>[2]</sup> = 1/m * np.sum(dZ<sup>[2]</sup>, axis = 1, keepdims = True)</code><br/>
+<code>dZ<sup>[1]</sup> = W<sup>[2]T</sup>dZ<sup>[2]</sup> * g<sup>[1]’</sup>(Z<sup>[1]</sup>)</code><br/>
+<code>dW<sup>[1]</sup> = 1/m * dZ<sup>[1]</sup>X<sup>T</sup></code><br/>
+<code>db<sup>[1]</sup> = a/m * np.sum(dZ<sup>[1]</sup>, axis = 1, keepdims = True)</code><br/>
 
 ## Random Initialization
 * In neural networks, it is important that you initialize weights as random numbers.
-* If all the hidden layer nodes are initialized to zero then they will be symmetrical and they will never differ from one another. In other words, it would become pointless to have more than one node.
-```html
-w<sup>[1]</sup> = np.random.randn((2, 2)) * 0.01
-b<sup>[1]</sup> = np.zero((2, 1))
-w<sup>[2]</sup> = np.random.randn((2, 2)) * 0.01
-b<sup>[2]</sup> = np.zero((2, 1))
-```
+* If all the hidden layer nodes are initialized to zero then they will be symmetrical and they will never differ from one another. In other words, it would become pointless to have more than one node.<br/>
+<code>w<sup>[1]</sup> = np.random.randn(2, 2) * 0.01</code><br/>
+<code>b<sup>[1]</sup> = np.zeros((2, 1))</code><br/>
+<code>w<sup>[2]</sup> = np.random.randn(2, 2) * 0.01</code><br/>
+<code>b<sup>[2]</sup> = np.zeros((2, 1))</code><br/>
 * When training with more hidden layers, and having more of a deep neural network, you oftentimes won’t want to use the constant 0.01. For one hidden layer, it is fine.
+
+### Additional Resources
+* http://scs.ryerson.ca/~aharley/neural-networks/
+* https://cs231n.github.io/neural-networks-case-study/
